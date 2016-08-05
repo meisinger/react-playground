@@ -1,0 +1,17 @@
+{
+  "name": "react-playground",
+  "version": "0.0.1",
+  "license": "N/A",
+  "author": "mike.meisinger@gmail.com",
+  "description": "Playing around with React... for fun!",
+  "keywords": [ "react" ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meisinger/react_playground.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified. Bad kitty!\" && exit 1"
+  }
+}
+
