@@ -1,11 +1,13 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import App from './components/App'
+import { Router, browserHistory } from 'react-router'
 
-document.addEventListener('DOMContentLoaded', (evt) => {
+import routes from './routes'
+
+document.addEventListener('DOMContentLoaded', (evt) => {  
   render(
-    <App />,
+    <Router history={browserHistory} routes={routes} />,
     document.getElementById('view')
   )
 })
