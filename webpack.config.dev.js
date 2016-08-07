@@ -27,6 +27,7 @@ export default {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
+    root: path.join(__dirname, 'source'),
     extensions: ['', '.js']
   }
 }
