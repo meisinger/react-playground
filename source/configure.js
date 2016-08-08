@@ -1,11 +1,12 @@
 
-import { createStore, applyMiddleware } from 'redux'
+import { compose, createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
+import stores from 'stores'
 
 export default (initState) => {
   const store = createStore(
-    (state = {}) => state,
+    stores,
     initState,
     applyMiddleware(
       thunkMiddleware,

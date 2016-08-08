@@ -8,18 +8,29 @@ class Signin extends Component {
     super(props)
   }
 
+  componentWillReceiveProps(next) {
+    if (next.authorized)
+      this.context.router.push('/signup')
+  }
+
   render() {
+    const { signin } = this.props
+
     return (
       <div className="columns is-centered">
         <div className="column is-4">
           <div className="box">
             <Banner title="Sign In" />
-            <SigninForm />
+            <SigninForm signin={signin} />
           </div>
         </div>
       </div>
     )
   }
+}
+
+Signin.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default Signin

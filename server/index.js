@@ -1,4 +1,5 @@
 
+import bodyParser from 'body-parser'
 import express from 'express'
 import path from 'path'
 
@@ -6,6 +7,8 @@ import config from '../webpack.config.dev'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
+
+import auth from './api/auth'
 
 const app = express()
 const compiler = webpack(config)
@@ -17,6 +20,13 @@ app.use(webpackMiddleware(compiler, {
   publicPath: config.output.publicPath
 }))
 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
+// routes
+app.use('/api/auth', auth)
+
+// fallback [catchall] route
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, './index.html'));
 })

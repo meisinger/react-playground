@@ -21,9 +21,10 @@ class SigninForm extends Component {
   }
 
   onSubmit(evt) {
+    const { signin } = this.props
     evt.preventDefault()
 
-    console.log('current state -> ', this.state)
+    signin(this.state)
   }
 
   render() {
