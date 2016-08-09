@@ -10,7 +10,7 @@ class Signin extends Component {
 
   componentWillReceiveProps(next) {
     if (next.authorized)
-      this.context.router.push('/signup')
+      this.context.router.push('/home')
   }
 
   render() {
