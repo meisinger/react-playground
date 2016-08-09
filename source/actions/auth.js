@@ -8,25 +8,19 @@ const login = user => {
     if (requesting || authorized)
       return
 
-    const req = {
-      uri: '/api/auth',
-      data: user
-    }
+    const req = { uri: '/api/auth', data: user }
 
-    dispatch({ type: 'auth.request' })
-    net.post(req)
-      .then(data => {
-        dispatch({
-          type: 'auth.signin',
-          data: data
-        })
-      })
-      .catch(err => {
-        dispatch({
-          type: 'auth.error',
-          errors: err
-        })
-      })
+    dispatch({
+      api: {
+        types: ['auth.request', 'auth.signin', 'auth.error'],
+        http: (state) => {
+          return net
+            .post(req)
+            .then(data => data)
+            .catch(err => err)
+        }
+      }
+    })
   }
 }
 
