@@ -1,8 +1,6 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import { logout } from 'actions/auth'
 
 class Header extends Component {
   constructor(props) {
@@ -78,20 +76,4 @@ class Header extends Component {
   }
 }
 
-const mapProps = (state) => {
-  const { auth: { authorized }} = state
-
-  return {
-    authorized
-  }
-}
-
-const mapDispatch = (dispatch) => {
-  return {
-    signout: () => {
-      dispatch(logout())
-    }
-  }
-}
-
-export default connect(mapProps, mapDispatch)(Header)
+export default Header
