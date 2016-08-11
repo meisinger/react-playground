@@ -9,6 +9,7 @@ import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 
 import auth from './api/auth'
+import profile from './api/profile'
 
 const app = express()
 const compiler = webpack(config)
@@ -25,6 +26,7 @@ app.use(bodyParser.json())
 
 // routes
 app.use('/api/auth', auth)
+app.use('/api/profile', profile)
 
 // fallback [catchall] route
 app.get('/*', (req, res) => {
