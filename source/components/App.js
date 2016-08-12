@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logout } from 'actions/auth'
 import Header from './Header'
+import Loading from './Loading'
 
 class App extends Component {
   constructor(props) {
@@ -15,10 +16,11 @@ class App extends Component {
   }
 
   render() {
-    const { authorized, signout } = this.props
+    const { authorized, activeCount, signout } = this.props
 
     return (
       <div className="container">
+        <Loading activeCount={activeCount} />
         <Header authorized={authorized} signout={signout} />
         {this.props.children}
       </div>
@@ -31,10 +33,11 @@ App.contextTypes = {
 }
 
 const mapProps = (state) => {
-  const { auth: { authorized }} = state
+  const { auth: { authorized }, http: { activeCount }} = state
 
   return {
-    authorized
+    authorized,
+    activeCount
   }
 }
 

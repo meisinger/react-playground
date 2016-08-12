@@ -17,10 +17,17 @@ const apiMiddleware = (state) => (next) => (action) => {
 
   const [request, success, failure] = types
   next(resolve(request))
+  next({ type: 'http.request' })
 
   http(state)
-    .then((data) => next(resolve(success, data)))
-    .catch((err) => next(resolve(failure, err)))
+    .then((data) => {
+      next(resolve(success, data))
+      next({ type: 'http.success' })
+    })
+    .catch((err) => {
+      next(resolve(failure, err))
+      next({ type: 'http.failure' })
+    })
 }
 
 export default apiMiddleware
