@@ -15,7 +15,7 @@ const load = () => {
       api: {
         types: types,
         http: (state) => {
-          net.get({ uri: '/api/profile' })
+          return net.get({ uri: '/api/profile' })
             .then(data => Object.assign({}, data, { fetched: new Date() }))
             .catch(err => err)
         }
