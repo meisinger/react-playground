@@ -17,3 +17,5 @@ document.addEventListener('DOMContentLoaded', (evt) => {
     document.getElementById('view')
   )
 })
+
+module.hot.accept()

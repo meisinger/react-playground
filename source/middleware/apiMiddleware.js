@@ -19,7 +19,7 @@ const apiMiddleware = (state) => (next) => (action) => {
   next(resolve(request))
   next({ type: 'http.request' })
 
-  http(state)
+  return http(state)
     .then((data) => {
       next(resolve(success, data))
       next({ type: 'http.success' })

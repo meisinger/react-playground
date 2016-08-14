@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Portal from './Portal'
 
 class Loading extends Component {
@@ -79,4 +80,11 @@ class Loading extends Component {
   }
 }
 
-export default Loading
+const mapProps = (state) => {
+  const { http: { activeCount }} = state
+  return {
+    activeCount
+  }
+}
+
+export default connect(mapProps)(Loading)

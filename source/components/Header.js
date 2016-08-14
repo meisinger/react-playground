@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logout } from 'actions/auth'
 import { Link } from 'react-router'
 
 class Header extends Component {
@@ -73,6 +75,22 @@ class Header extends Component {
         </span>
       </div>
     )
+  }
+}
+
+const mapProps = (state) => {
+  const { auth: { authorized }} = state
+
+  return {
+    authorized
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    signout: () => {
+      dispatch(logout())
+    }
   }
 }
 

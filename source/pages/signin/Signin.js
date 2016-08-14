@@ -8,11 +8,6 @@ class Signin extends Component {
     super(props)
   }
 
-  componentWillReceiveProps(next) {
-    if (next.authorized)
-      this.context.router.push('/home')
-  }
-
   render() {
     const { signin } = this.props
 
@@ -27,10 +22,6 @@ class Signin extends Component {
       </div>
     )
   }
-}
-
-Signin.contextTypes = {
-  router: React.PropTypes.object.isRequired
 }
 
 export default Signin

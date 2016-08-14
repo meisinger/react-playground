@@ -6,28 +6,23 @@ const load = () => {
   return (dispatch, getState) => {
     const { profile: { requesting, fetched }} = getState()
 
-    if (requesting)
+    const stale = moment().subtract(30, 'seconds')
+    if (requesting || (fetched && moment(fetched) > stale))
       return
 
-    if (fetched && moment(fetched) > moment().subtract(30, 'seconds'))
-      return;
-
-    const req = { uri: '/api/profile' }
-
-    dispatch({
+    const types = ['profile.request', 'profile.response', 'api.error']
+    const action = {
       api: {
-        types: ['profile.request', 'profile.response', 'api.error'],
+        types: types,
         http: (state) => {
-          return net
-            .get(req)
-            .then(data =>
-              Object.assign({}, data,
-                { fetched: moment() })
-            )
+          net.get({ uri: '/api/profile' })
+            .then(data => Object.assign({}, data, { fetched: new Date() }))
             .catch(err => err)
         }
       }
-    })
+    }
+
+    dispatch(action)
   }
 }
 

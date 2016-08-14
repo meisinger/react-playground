@@ -13,6 +13,6 @@ export default (
     <IndexRoute component={Welcome} />
     <Route path="signup" component={Signup} />
     <Route path="signin" component={Signin} />
-    <Route path="home" component={Home} />
+    <Route path="member" component={Home} />
   </Route>
 )
