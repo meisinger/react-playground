@@ -3,6 +3,34 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Portal from './Portal'
 
+const styles = {
+  absolute: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
+  flex_center: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  wrapper: {
+    zIndex: 9000,
+    backgroundColor: 'rgba(120, 120, 120, .6)',
+    cursor: 'wait'
+  },
+  loading: {
+    minWidth: 200,
+    maxWidth: 200,
+    minHeight: 120,
+    maxHeight: 120,
+    color: '#efefef'
+  }
+}
+
 class Loading extends Component {
   constructor(props) {
     super(props)
@@ -44,31 +72,16 @@ class Loading extends Component {
     if (!loading)
       return null
 
-    const flexCenter = {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
+    const wrapperStyle = Object.assign({},
+      styles.flex_center,
+      styles.absolute,
+      styles.wrapper
+    )
 
-    const wrapperStyle = Object.assign({}, flexCenter, {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: 9000,
-      backgroundColor: 'rgba(120, 120, 120, .6)',
-      cursor: 'wait'
-    })
-
-    const loadingStyle = Object.assign({}, flexCenter, {
-      minWidth: 200,
-      maxWidth: 200,
-      minHeight: 120,
-      maxHeight: 120,
-      color: '#efefef'
-    })
+    const loadingStyle = Object.assign({},
+      styles.flex_center,
+      styles.loading
+    )
 
     return (
       <Portal style={wrapperStyle}>

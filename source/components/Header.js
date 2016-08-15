@@ -94,4 +94,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default Header
+export default connect(mapProps, mapDispatch)(Header)

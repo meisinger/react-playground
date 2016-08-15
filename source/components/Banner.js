@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-class Banner extends Component {
+export default class Banner extends Component {
   render() {
     return (
       <section className="hero is-primary heading">
@@ -16,5 +16,3 @@ class Banner extends Component {
     )
   }
 }
-
-export default Banner

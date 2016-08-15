@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-class Welcome extends Component {
+export default class Welcome extends Component {
   render() {
     return (
       <div className="hero is-light">
@@ -19,5 +19,3 @@ class Welcome extends Component {
     )
   }
 }
-
-export default Welcome

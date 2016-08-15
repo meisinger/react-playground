@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-class Portal extends Component {
+export default class Portal extends Component {
   constructor(props) {
     super(props)
     this.element = undefined
@@ -43,5 +43,3 @@ class Portal extends Component {
     return null
   }
 }
-
-export default Portal
