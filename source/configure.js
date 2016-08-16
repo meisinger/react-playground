@@ -5,15 +5,17 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import stores from 'stores'
 
+const middleware = applyMiddleware(
+  apiMiddleware,
+  thunkMiddleware,
+  createLogger()
+)
+
 export default (initState) => {
   const store = createStore(
     stores,
     initState,
-    applyMiddleware(
-      apiMiddleware,
-      thunkMiddleware,
-      createLogger()
-    )
+    middleware
   )
 
   if (module.hot) {
