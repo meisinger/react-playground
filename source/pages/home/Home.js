@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-class Home extends Component {
+export default class extends Component {
   constructor(props) {
     super(props)
   }
@@ -16,21 +16,38 @@ class Home extends Component {
     if (requesting)
       return null
 
+    const contentStyle = {
+      alignSelf: 'center',
+      width: '100%',
+      maxWidth: 1200,
+      marginTop: 20
+    }
+
+    const navStyle = {
+      minWidth: 250
+    }
+
     return (
-      <div className="hero is-light">
-        <div className="hero-body">
-          <div className="container is-fluid">
-            <h1 className="title is-2">
+      <div className="flex-column full">
+        <div className="billboard is-light">
+          <div className="content">
+            <div className="title is-2">
               Welcome back {first_name + ' ' + last_name}
-            </h1>
-            <h2 className="subtitle">
+            </div>
+            <div className="subtitle">
               We are glad to see you again.
-            </h2>
+            </div>
+          </div>
+        </div>
+        <div className="flex-row center" style={contentStyle}>
+          <div className="flex-column center full is-light">
+            <div>Main?</div>
+          </div>
+          <div className="flex-column center is-primary" style={navStyle}>
+            <div>Nav?</div>
           </div>
         </div>
       </div>
     )
   }
 }
-
-export default Home

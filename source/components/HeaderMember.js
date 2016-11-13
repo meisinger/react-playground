@@ -17,16 +17,14 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="nav-right">
-        <span className="nav-item">
-          <a className="button" onClick={this.handleLogout}>
-            <span className="icon">
-              <i className="fa fa-sign-out"></i>
-            </span>
-            <span>Sign Out</span>
-          </a>
-        </span>
-      </div>
+      <nav className="right">
+        <a className="button" onClick={this.handleLogout}>
+          <span className="icon">
+            <i className="fa fa-sign-out"></i>
+          </span>
+          <span>Sign Out</span>
+        </a>
+      </nav>
     )
   }
 }

@@ -30,7 +30,7 @@ app.use('/api/profile', profile)
 
 // fallback [catchall] route
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './index.html'));
+  res.sendFile(path.join(__dirname, './index.html'))
 })
 
 app.listen(7000,

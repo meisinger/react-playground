@@ -9,15 +9,13 @@ export default class extends Component {
 
   render() {
     return (
-      <header className="section">
-        <nav className="nav">
-          <div className="nav-left">
-            <Link to="/" className="nav-item">
-              <strong>Meisinger</strong>
-            </Link>
-          </div>
-          {this.props.children}
+      <header>
+        <nav className="left">
+          <Link to="/" className="brand">
+            <strong>Meisinger</strong>
+          </Link>
         </nav>
+        {this.props.children}
       </header>
     )
   }

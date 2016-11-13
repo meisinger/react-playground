@@ -12,12 +12,10 @@ class Signin extends Component {
     const { signin } = this.props
 
     return (
-      <div className="columns is-centered">
-        <div className="column is-4">
-          <div className="box">
-            <Banner title="Sign In" />
-            <SigninForm signin={signin} />
-          </div>
+      <div className="flex-column center">
+        <div className="box">
+          <Banner title="Sign In" />
+          <SigninForm signin={signin} />
         </div>
       </div>
     )

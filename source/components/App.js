@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Loading from './Loading'
 import Welcome from './Welcome'
 import Header from './Header'
+import Footer from './Footer'
 import HeaderGuest from './HeaderGuest'
 
 export default class extends Component {
@@ -20,10 +21,13 @@ export default class extends Component {
       header = this.props.header
 
     return (
-      <div className="container">
+      <div className="view-container">
         <Loading />
         <Header>{header}</Header>
-        {main}
+        <section className="view-content">
+          {main}
+        </section>
+        <Footer />
       </div>
     )
   }
